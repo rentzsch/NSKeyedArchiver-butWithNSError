@@ -96,7 +96,7 @@ static void testEverySecureEncodeDecodeCombination(SecureEncodeDecodeBlock block
     XCTAssertEqualObjects(error.domain, NSInvalidArchiveOperationException, @"");
 }
 
-- (void)XtestNSSecureCoding {
+- (void)testNSSecureCoding {
     testEverySecureEncodeDecodeCombination(^(BOOL secureEncode, BOOL secureDecode) {
         NSData *data;
         {{
