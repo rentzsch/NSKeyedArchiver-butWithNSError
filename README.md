@@ -49,7 +49,7 @@ Not only are you now in the creation and configuration business, you need to use
 
 Having to reimplement `+archivedDataWithRootObject:`, you'd be forgiven thinking that you should utilize `-[NSKeyedArchiver encodeRootObject:]`. That's what I did.
 
-Bzzt. Unfortunately it turns out generates a binary plist in a format (I call this "format 1") that's incompatible with `+[NSKeyedUnarchiver unarchiveObjectWithData:]` (which requires what I call "format 2").
+Bzzt. Unfortunately it turns out generates a binary plist in a format (I call this "Format 1") that's incompatible with `+[NSKeyedUnarchiver unarchiveObjectWithData:]` (which requires what I call "Format 2").
 
 Here's a table of which methods play with which format. I think.
 
