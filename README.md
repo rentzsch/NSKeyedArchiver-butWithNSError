@@ -62,7 +62,7 @@ Method                                                                 | Binary 
 `-[NSKeyedArchiver encodeObject:forKey:NSKeyedArchiveRootObjectKey]`   | Format 2             | yes
 `-[NSKeyedUnarchiver decodeObjectForKey:NSKeyedArchiveRootObjectKey]`  | Format 2             | yes
 
-The Bad News since is that you must use `-[NSKeyedUnarchiver decodeObject]` to decode what `-[NSKeyedArchiver encodeRootObject:]` is cooking, and `-decodeObject` isn't compatible with NSSecureCoding (you need to use `-decodeObjectOfClasses:forKey:`).
+The Bad News is that you must use `-[NSKeyedUnarchiver decodeObject]` to decode what `-[NSKeyedArchiver encodeRootObject:]` is cooking, and `-decodeObject` isn't compatible with NSSecureCoding (you need to use `-decodeObjectOfClasses:forKey:`).
 
 **tl;dr**: don't use `-[NSKeyedArchiver encodeRootObject:]` or `-[NSKeyedUnarchiver decodeObject]` in new code unless you need compatibility with Format 1 archives.
 
