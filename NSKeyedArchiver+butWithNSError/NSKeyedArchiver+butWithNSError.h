@@ -1,5 +1,7 @@
-//  Copyright (c) 2014 Jonathan 'Wolf' Rentzsch: http://rentzsch.com
-//  Some rights reserved: http://opensource.org/licenses/mit
+// NSKeyedArchiver+butWithNSError.h semver:1.0b1
+//   Copyright (c) 2014 Jonathan 'Wolf' Rentzsch: http://rentzsch.com
+//   Some rights reserved: http://opensource.org/licenses/mit
+//   https://github.com/rentzsch/NSKeyedArchiver-butWithNSError
 
 #import <Foundation/Foundation.h>
 
