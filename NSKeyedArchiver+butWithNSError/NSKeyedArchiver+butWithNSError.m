@@ -51,11 +51,11 @@
     }
     
     @try {
-        NSMutableSet *classWhitelist = [NSMutableSet setWithArray:@[[NSDate class],
+        NSMutableSet *classWhitelist = [NSMutableSet setWithArray:@[[NSArray class],
+                                                                    [NSDictionary class],
                                                                     [NSString class],
                                                                     [NSNumber class],
-                                                                    [NSArray class],
-                                                                    [NSDictionary class],
+                                                                    [NSDate class],
                                                                     [NSData class]]];
         if (customClassWhitelist) {
             [classWhitelist addObjectsFromArray:customClassWhitelist];
