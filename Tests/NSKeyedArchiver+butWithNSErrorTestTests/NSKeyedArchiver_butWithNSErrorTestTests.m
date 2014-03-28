@@ -150,6 +150,52 @@ static void testEverySecureEncodeDecodeCombination(SecureEncodeDecodeBlock block
     });
 }
 
+- (void)testProvingImNotCrazy {
+    NSDictionary *originalObject = @{@"payload": @"fred"};
+    
+    NSData *dataFromArchivedDataWithRootObject = [NSKeyedArchiver archivedDataWithRootObject:originalObject];
+    
+    NSMutableData *dataFromEncodeObjectForKey = [NSMutableData new];
+    {{
+        NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:dataFromEncodeObjectForKey];
+        [archiver encodeObject:originalObject forKey:NSKeyedArchiveRootObjectKey];
+        [archiver finishEncoding];
+    }}
+    
+    XCTAssertEqualObjects(dataFromArchivedDataWithRootObject, dataFromEncodeObjectForKey, @"");
+    
+    NSMutableData *dataFromEncodeRootObject = [NSMutableData new];
+    {{
+        NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:dataFromEncodeRootObject];
+        [archiver encodeRootObject:originalObject];
+        [archiver finishEncoding];
+    }}
+    
+    // I originally expected this to pass:
+    // XCTAssertEqualObjects(dataFromEncodeObjectForKey, dataFromEncodeRootObject, @"");
+    
+    // But this is the case:
+    XCTAssertNotEqualObjects(dataFromEncodeObjectForKey, dataFromEncodeRootObject, @"");
+    
+    NSDictionary *objectFromUnarchiveObjectWithData = [NSKeyedUnarchiver unarchiveObjectWithData:dataFromArchivedDataWithRootObject];
+    XCTAssertEqualObjects(originalObject, objectFromUnarchiveObjectWithData); // Of course.
+    
+    objectFromUnarchiveObjectWithData = [NSKeyedUnarchiver unarchiveObjectWithData:dataFromEncodeObjectForKey];
+    XCTAssertEqualObjects(originalObject, objectFromUnarchiveObjectWithData); // No problemo.
+    
+    objectFromUnarchiveObjectWithData = [NSKeyedUnarchiver unarchiveObjectWithData:dataFromEncodeRootObject];
+    // Yeah nah:
+    // XCTAssertEqualObjects(originalObject, objectFromUnarchiveObjectWithData);
+    // This instead. Surprise!
+    XCTAssertNil(objectFromUnarchiveObjectWithData, @"");
+    
+    {{
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:dataFromEncodeRootObject];
+        NSDictionary *objectFromDecodeObject = [unarchiver decodeObject];
+        XCTAssertEqualObjects(originalObject, objectFromDecodeObject);
+    }}
+}
+
 @end
 
 @implementation MyClassConformingToNSCoding
