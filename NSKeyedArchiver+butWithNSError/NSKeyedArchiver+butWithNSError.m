@@ -7,9 +7,9 @@
 
 @implementation NSKeyedArchiver (butWithNSError)
 
-+ (id)jr_archivedDataWithRootObject:(id)rootObject
-               requiresSecureCoding:(BOOL)requiresSecureCoding
-                              error:(NSError**)error
++ (NSData*)jr_archivedDataWithRootObject:(id)rootObject
+                    requiresSecureCoding:(BOOL)requiresSecureCoding
+                                   error:(NSError**)error
 {
     NSMutableData *result = [NSMutableData data];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:result];

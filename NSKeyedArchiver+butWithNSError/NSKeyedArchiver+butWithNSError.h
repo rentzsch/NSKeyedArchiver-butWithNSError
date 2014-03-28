@@ -6,16 +6,16 @@
 #import <Foundation/Foundation.h>
 
 @interface NSKeyedArchiver (butWithNSError)
-+ (id)jr_archivedDataWithRootObject:(id)rootObject
-               requiresSecureCoding:(BOOL)requiresSecureCoding
-                              error:(NSError**)error;
++ (NSData*)jr_archivedDataWithRootObject:(id)rootObject
+                    requiresSecureCoding:(BOOL)requiresSecureCoding
+                                   error:(NSError**)error;
 @end
 
 //--
 
 @interface NSKeyedUnarchiver (butWithNSError)
 + (id)jr_unarchiveData:(NSData*)data
-  requiresSecureCoding:(BOOL)secure
+  requiresSecureCoding:(BOOL)requiresSecureCoding
              whitelist:(NSArray*)customClassWhitelist
                  error:(NSError**)error;
 @end
