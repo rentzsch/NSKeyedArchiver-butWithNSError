@@ -54,7 +54,7 @@ Bzzt. Unfortunately it turns out generates a binary plist in a format (I call th
 Here's a table of which methods play with which format. I think.
 
 Method                                                                 | Binary Plist Format  | NSSecureCoding compatible
----                                                                    | -                    | -
+---                                                                    | ---                  | ---
 `-[NSKeyedArchiver encodeRootObject:]`                                 | Format 1             | no
 `-[NSKeyedUnarchiver decodeObject]`                                    | Format 1             | no
 `+[NSKeyedArchiver archivedDataWithRootObject:]`                       | Format 2             | no
