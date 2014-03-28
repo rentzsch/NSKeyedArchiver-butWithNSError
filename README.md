@@ -47,7 +47,7 @@ But then [NSSecureCoding](http://nshipster.com/nssecurecoding/) burst onto the s
 
 Not only are you now in the creation and configuration business, you need to use it correctly. And it turns out there's a trap for the unwary.
 
-Having to implement `+archivedDataWithRootObject:`, you'd be forgiven thinking that you should utilize `-[NSKeyedArchiver encodeRootObject:]`. That's what I did.
+Having to reimplement `+archivedDataWithRootObject:`, you'd be forgiven thinking that you should utilize `-[NSKeyedArchiver encodeRootObject:]`. That's what I did.
 
 Bzzt. Unfortunately it turns out generates a binary plist in a format (I call this "format 1") that's incompatible with `+[NSKeyedUnarchiver unarchiveObjectWithData:]` (which requires what I call "format 2").
 
