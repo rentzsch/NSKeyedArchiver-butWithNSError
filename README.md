@@ -74,7 +74,7 @@ That leaves us with `-[NSKeyedArchiver encodeObject:forKey:NSKeyedArchiveRootObj
 
 I could make a case for NSKeyedArchiver throwing exceptions since as the programmer you can know what you're passing it. But it seems wrong that NSKeyedUnarchiver throws exceptions.
 
-Here is a class responsible for decoding potentially hostile data and it blow up your entire process if things aren't exactly to its liking?! That's just nuts.
+Here is a class responsible for decoding potentially hostile data and it blows up your entire process if things aren't exactly to its liking?! That's just nuts.
 
 NSKeyedArchiver+butWithNSError catches exceptions, unravels them and transmogrifies them into NSErrors for you so you can handle them normally (I'm biased, but I recommend [JRErr](https://github.com/rentzsch/JRErr)).
 
