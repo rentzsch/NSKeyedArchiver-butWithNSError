@@ -53,10 +53,19 @@
     @try {
         NSMutableSet *classWhitelist = [NSMutableSet setWithArray:@[[NSArray class],
                                                                     [NSDictionary class],
+                                                                    [NSSet class],
+                                                                    [NSOrderedSet class],
                                                                     [NSString class],
                                                                     [NSNumber class],
+                                                                    [NSValue class],
                                                                     [NSDate class],
-                                                                    [NSData class]]];
+                                                                    [NSData class],
+                                                                    [NSNull class],
+                                                                    [NSURL class],
+                                                                    [NSUUID class],
+                                                                    [NSError class],
+                                                                    [NSTimeZone class],
+                                                                    ]];
         if (customClassWhitelist) {
             [classWhitelist addObjectsFromArray:customClassWhitelist];
         }
