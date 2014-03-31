@@ -1,4 +1,4 @@
-// NSKeyedArchiver+butWithNSError.m semver:1.0b1
+// NSKeyedArchiver+butWithNSError.m semver:1.0b2
 //   Copyright (c) 2014 Jonathan 'Wolf' Rentzsch: http://rentzsch.com
 //   Some rights reserved: http://opensource.org/licenses/mit
 //   https://github.com/rentzsch/NSKeyedArchiver-butWithNSError
