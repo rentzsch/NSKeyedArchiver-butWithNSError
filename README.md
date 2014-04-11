@@ -43,7 +43,7 @@ and
 
 and would be done for the day and catch an X-Files rerun. I hope the Smoking Man's in this one.
 
-But then [NSSecureCoding](http://nshipster.com/nssecurecoding/) burst onto the scene. Now you need to manually create your archivers and unarchives just so you can call their concealed `-setRequiresSecureCoding:` methods.
+But then [NSSecureCoding](http://nshipster.com/nssecurecoding/) burst onto the scene. Now you need to manually create your archivers and unarchivers just so you can call their concealed `-setRequiresSecureCoding:` methods.
 
 Not only are you now in the creation and configuration business, you need to use it correctly. And it turns out there's a trap for the unwary.
 
