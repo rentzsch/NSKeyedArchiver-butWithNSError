@@ -11,8 +11,7 @@
                     requiresSecureCoding:(BOOL)requiresSecureCoding
                                    error:(NSError**)error
 {
-    NSMutableData *result = [NSMutableData data];
-    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:result];
+    NSKeyedArchiver* archiver = [[NSKeyedArchiver alloc] initRequiringSecureCoding:requiresSecureCoding];
 #if !__has_feature(objc_arc)
     [archiver autorelease];
 #endif
@@ -22,7 +21,7 @@
     @try {
         [archiver encodeObject:rootObject forKey:NSKeyedArchiveRootObjectKey];
         [archiver finishEncoding];
-        return result;
+        return [archiver encodedData];
     } @catch (NSException *exception) {
         if (error) {
             *error = [NSError errorWithDomain:NSInvalidArchiveOperationException
@@ -42,7 +41,7 @@
              whitelist:(NSArray*)customClassWhitelist
                  error:(NSError**)error
 {
-    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:error];
 #if !__has_feature(objc_arc)
     [unarchiver autorelease];
 #endif
