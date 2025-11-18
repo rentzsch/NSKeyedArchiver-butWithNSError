@@ -225,6 +225,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -404,6 +405,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NSKeyedArchiver+butWithNSErrorTest/NSKeyedArchiver+butWithNSErrorTest-Prefix.pch";
 				INFOPLIST_FILE = "NSKeyedArchiver+butWithNSErrorTest/NSKeyedArchiver+butWithNSErrorTest-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -417,6 +419,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NSKeyedArchiver+butWithNSErrorTest/NSKeyedArchiver+butWithNSErrorTest-Prefix.pch";
 				INFOPLIST_FILE = "NSKeyedArchiver+butWithNSErrorTest/NSKeyedArchiver+butWithNSErrorTest-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -438,6 +441,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "NSKeyedArchiver+butWithNSErrorTestTests/NSKeyedArchiver+butWithNSErrorTestTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -456,6 +460,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NSKeyedArchiver+butWithNSErrorTest/NSKeyedArchiver+butWithNSErrorTest-Prefix.pch";
 				INFOPLIST_FILE = "NSKeyedArchiver+butWithNSErrorTestTests/NSKeyedArchiver+butWithNSErrorTestTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

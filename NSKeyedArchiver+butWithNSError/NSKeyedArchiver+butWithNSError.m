@@ -15,9 +15,7 @@
 #if !__has_feature(objc_arc)
     [archiver autorelease];
 #endif
-    if (requiresSecureCoding) {
-        archiver.requiresSecureCoding = YES;
-    }
+    
     @try {
         [archiver encodeObject:rootObject forKey:NSKeyedArchiveRootObjectKey];
         [archiver finishEncoding];
@@ -45,8 +43,10 @@
 #if !__has_feature(objc_arc)
     [unarchiver autorelease];
 #endif
-    if (requiresSecureCoding) {
-        unarchiver.requiresSecureCoding = YES;
+    unarchiver.requiresSecureCoding = requiresSecureCoding;
+
+    if (*error != nil) {
+        return nil;
     }
     
     @try {
@@ -71,6 +71,7 @@
         id result = [unarchiver decodeObjectOfClasses:classWhitelist
                                                forKey:NSKeyedArchiveRootObjectKey];
         [unarchiver finishDecoding];
+        *error = unarchiver.error;
         return result;
     } @catch(NSException *exception) {
         if (error) {
