@@ -122,7 +122,8 @@ static void testEverySecureEncodeDecodeCombination(SecureEncodeDecodeBlock block
                                                                                                  error:&error];
                 XCTAssertNil(decodedObject, @"");
                 XCTAssertNotNil(error, @"");
-                XCTAssertEqualObjects(error.domain, NSInvalidUnarchiveOperationException, @"");
+                XCTAssertEqualObjects(error.domain, NSCocoaErrorDomain, @"");
+                XCTAssertTrue([[error.userInfo objectForKey:NSDebugDescriptionErrorKey] hasPrefix:@"value for key 'root' was of unexpected class 'MyClassConformingToNSSecureCoding'"]);
             }}
             {{
                 // Ensure decoding succeeds if we whitelist our custom class.
